@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITHIUM 2K26 - Get Your Pass</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #FF0F7B, #F89B29, #FF0F7B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255,15,123,0.3);
+        }
+        .cute-pass {
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+        }
+        .download-btn {
+            background: linear-gradient(45deg, #FF0F7B 0%, #F89B29 100%);
+            box-shadow: 0 4px 20px rgba(255,15,123,0.4);
+            color: white;
+        }
+        .home-btn {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full bg-white cute-pass overflow-hidden">
+        <div class="bg-gradient-to-r from-pink-600 to-orange-500 p-6 text-white text-center">
+            <h1 class="text-2xl font-bold">LITHIUM 2K26</h1>
+            <p class="opacity-90">Freshers Festival Pass</p>
+        </div>
+        <div class="p-8 text-center">
+            <div class="bg-gray-100 rounded-lg p-6 mb-6">
+                <div class="text-sm text-gray-500 mb-2">Your Unique Pass ID</div>
+                <div id="passNumber" class="text-3xl font-bold gradient-text tracking-widest">LITH-000000</div>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="text-left">
+                    <div class="text-sm text-gray-500">Date</div>
+                    <div class="font-medium">October 15, 2025</div>
+                </div>
+                <div class="text-left">
+                    <div class="text-sm text-gray-500">Time</div>
+                    <div class="font-medium">9:00 AM - 9:00 PM</div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-6">
+                <p class="text-gray-600 mb-6">Show this pass at the entrance to gain access to all festival events.</p>
+                <button onclick="window.print()" class="download-btn text-white px-6 py-2 rounded-full font-medium flex items-center justify-center mx-auto">
+                    <i data-feather="printer" class="mr-2"></i> Print Pass
+                </button>
+            </div>
+        </div>
+        <div class="bg-gray-100 p-4 text-center flex justify-center space-x-4">
+            <button onclick="downloadPass()" class="download-btn text-white px-4 py-2 rounded-full font-medium flex items-center">
+                <i data-feather="download" class="mr-2"></i> Download Pass
+            </button>
+            <a href="index.html" class="home-btn px-4 py-2 rounded-full font-medium flex items-center">
+                <i data-feather="home" class="mr-2"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Generate sequential pass number
+        function generatePassNumber() {
+            // Get or initialize the pass counter
+            let passCounter = localStorage.getItem('lithiumPassCounter');
+            if (!passCounter) {
+                passCounter = 1;
+            } else {
+                passCounter = parseInt(passCounter) + 1;
+            }
+            
+            // Store the updated counter
+            localStorage.setItem('lithiumPassCounter', passCounter);
+            
+            // Format as 6-digit number
+            const passNumber = passCounter.toString().padStart(6, '0');
+            document.getElementById('passNumber').textContent = `LITH-${passNumber}`;
+            
+            // Store this user's pass number
+            localStorage.setItem('lithiumPassNumber', passNumber);
+        }
+
+        // Download pass as image
+        function downloadPass() {
+            const passElement = document.querySelector('.max-w-md');
+            html2canvas(passElement).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'LITHIUM-Pass.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+
+        // Optimized initialization with requestAnimationFrame
+        function optimizedInit() {
+            requestAnimationFrame(() => {
+                // Generate pass number
+                generatePassNumber();
+                
+                // Feather icons
+                feather.replace();
+                
+                // Load html2canvas only when needed
+                const loadCanvasScript = () => {
+                    const script = document.createElement('script');
+                    script.src = 'https://html2canvas.hertzen.com/dist/html2canvas.min.js';
+                    script.defer = true;
+                    document.head.appendChild(script);
+                };
+                
+                // Only load when download button is hovered or focused
+                const downloadBtn = document.querySelector('.download-btn');
+                downloadBtn.addEventListener('mouseenter', loadCanvasScript, { once: true });
+                downloadBtn.addEventListener('focus', loadCanvasScript, { once: true });
+            });
+        }
+        
+        // Use DOMContentLoaded with passive listener
+        document.addEventListener('DOMContentLoaded', optimizedInit, { passive: true });
+    </script>
+</body>
+</html>

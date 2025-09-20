@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LITHIUM 2K26 | College Freshers Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #FF0F7B, #F89B29, #FF0F7B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255,15,123,0.3);
+        }
+        .cute-btn {
+            background: linear-gradient(45deg, #FF0F7B 0%, #F89B29 100%);
+            box-shadow: 0 4px 20px rgba(255,15,123,0.4);
+            transition: all 0.3s ease;
+        }
+        .cute-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(250, 208, 196, 0.6);
+        }
+        .schedule-card {
+            border-radius: 20px;
+            border: 2px solid #fff;
+            box-shadow: 0 10px 20px rgba(255, 154, 158, 0.1);
+        }
+        .speaker-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(255, 154, 158, 0.1);
+            border: 2px solid #fff;
+        }
+        .vanta-bg {
+            min-height: 100vh;
+        }
+        .schedule-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-pink-50/80 backdrop-blur-md shadow-sm border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">LITHIUM 2K25</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition">About</a>
+                    <a href="#schedule" class="text-gray-700 hover:text-purple-600 transition">Schedule</a>
+                    <a href="#speakers" class="text-gray-700 hover:text-purple-600 transition">Speakers</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-purple-600 transition">Gallery</a>
+                    <a href="pass.html" class="cute-btn text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all">
+                        Get Your Pass
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 pt-20 px-4">
+        <div class="flex flex-col space-y-6 text-center">
+            <a href="#home" class="text-xl text-gray-700 hover:text-purple-600">Home</a>
+            <a href="#about" class="text-xl text-gray-700 hover:text-purple-600">About</a>
+            <a href="#schedule" class="text-xl text-gray-700 hover:text-purple-600">Schedule</a>
+            <a href="#speakers" class="text-xl text-gray-700 hover:text-purple-600">Speakers</a>
+            <a href="#gallery" class="text-xl text-gray-700 hover:text-purple-600">Gallery</a>
+            <a href="pass.html" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-6 py-3 rounded-full font-medium mx-auto">
+                Get Your Pass
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative flex items-center justify-center text-center bg-gradient-to-br from-pink-600 via-orange-500 to-yellow-400">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        <div class="relative z-10 max-w-4xl px-4 py-20">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4" data-aos="fade-down">
+                <span class="gradient-text">LITHIUM 2K25</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-8" data-aos="fade-down" data-aos-delay="100">
+                College Freshers Festival 2026
+            </p>
+            <p class="text-lg text-white opacity-90" data-aos="fade-down" data-aos-delay="150">
+                Welcoming the Brightest Minds of Tomorrow
+            </p>
+            <div class="mb-10" data-aos="fade-up" data-aos-delay="200">
+                <div id="countdown" class="flex justify-center space-x-4 mb-8">
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-white" id="days">00</div>
+                        <div class="text-sm text-white">Days</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-white" id="hours">00</div>
+                        <div class="text-sm text-white">Hours</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-white" id="minutes">00</div>
+                        <div class="text-sm text-white">Minutes</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-white" id="seconds">00</div>
+                        <div class="text-sm text-white">Seconds</div>
+                    </div>
+                </div>
+                <button class="cute-btn text-white px-8 py-3 rounded-full font-medium text-lg hover:shadow-xl transition-all transform hover:scale-105">
+                    Join the Celebration
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">About <span class="gradient-text">LITHIUM 2K26</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-pink-500 to-orange-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="rounded-xl overflow-hidden shadow-xl" data-aos="fade-right">
+                    <img src="http://static.photos/education/1024x576/42" alt="College students celebrating" class="w-full h-auto">
+                </div>
+                <div data-aos="fade-left">
+                    <p class="text-lg text-gray-600 mb-6">
+                        LITHIUM 2K26 is the most anticipated freshers' festival of the year, designed to welcome the new batch with open arms and unforgettable experiences. This one-day extravaganza will set the tone for your incredible journey ahead.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Prepare to be dazzled by performances, inspired by speakers, and connected with your peers through a series of exciting events carefully crafted to celebrate your arrival at our prestigious institution.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-full mr-3">
+                                <i data-feather="calendar" class="text-purple-600"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium text-gray-900">October 15, 2025</div>
+                                <div class="text-sm text-gray-500">Event Date</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-full mr-3">
+                                <i data-feather="clock" class="text-blue-600"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium text-gray-900">9:00 AM - 9:00 PM</div>
+                                <div class="text-sm text-gray-500">Event Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Event <span class="gradient-text">Schedule</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+                <p class="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+                    A day packed with excitement, inspiration, and celebration
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden schedule-card transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 p-6 text-white">
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i data-feather="music"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Inaugural Songs</h3>
+                                <p class="opacity-90">🎶</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>9:00 AM - 9:45 AM</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Kickstart the festival with soulful performances by our college choir and music club.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden schedule-card transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-r from-pink-500 to-rose-500 p-6 text-white">
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i data-feather="activity"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Inaugural Dance</h3>
+                                <p class="opacity-90">💃</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>10:00 AM - 10:45 AM</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Energetic dance performances showcasing diverse cultural traditions and contemporary styles.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden schedule-card transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-r from-amber-500 to-yellow-500 p-6 text-white">
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i data-feather="users"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Freshers Ramp Walk</h3>
+                                <p class="opacity-90">👗👔</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>11:00 AM - 12:30 PM</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Showcase your style and confidence in this exciting ramp walk competition.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden schedule-card transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-500 p-6 text-white">
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i data-feather="headphones"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Band Performance</h3>
+                                <p class="opacity-90">🎸🥁</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>2:00 PM - 3:30 PM</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Rock the stage with our college band and special guest performers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden schedule-card transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-gradient-to-r from-blue-500 to-indigo-500 p-6 text-white">
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i data-feather="mic"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Professors & HODs Speech</h3>
+                                <p class="opacity-90">🎤</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>4:00 PM - 5:00 PM</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Words of wisdom and welcome from our esteemed faculty members.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden schedule-card transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-gradient-to-r from-violet-500 to-fuchsia-500 p-6 text-white">
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i data-feather="award"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Award Ceremony</h3>
+                                <p class="opacity-90">🏆</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i data-feather="clock" class="mr-2"></i>
+                            <span>7:30 PM - 9:00 PM</span>
+                        </div>
+                        <p class="text-gray-600">
+                            Recognizing outstanding performances and concluding the festival with celebrations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section id="speakers" class="py-20 bg-gradient-to-b from-white to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our <span class="gradient-text">Speakers</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+                <p class="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+                    Meet our esteemed faculty members who will guide you through this journey
+                </p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-8">
+                <!-- Director Video -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full h-64 bg-black flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <i data-feather="video" class="w-12 h-12 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-bold">College Director</h3>
+                            <p class="text-purple-600">Welcome Message</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Dr. Rajesh Kumar</h3>
+                        <p class="text-purple-600 mb-3">College Director</p>
+                        <p class="text-gray-600 text-sm">
+                            A visionary leader with 25+ years of experience in academic administration and student development.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Principal Video -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-64 bg-black flex items-center justify-center">
+                        <div class="text-white text-center p-4">
+                            <i data-feather="video" class="w-12 h-12 mx-auto mb-4"></i>
+                            <h3 class="text-xl font-bold">Principal</h3>
+                            <p class="text-blue-600">Welcome Message</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Dr. Priya Sharma</h3>
+                        <p class="text-blue-600 mb-3">Principal</p>
+                        <p class="text-gray-600 text-sm">
+                            An accomplished academician with expertise in curriculum development and student mentorship.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gradient-to-b from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Event <span class="gradient-text">Gallery</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
+                <p class="text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
+                    Relive the memories from previous years
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <img src="http://static.photos/education/640x360/201" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <img src="http://static.photos/education/640x360/202" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <img src="http://static.photos/education/640x360/203" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="400">
+                    <img src="http://static.photos/education/640x360/204" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="500">
+                    <img src="http://static.photos/education/640x360/205" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="600">
+                    <img src="http://static.photos/education/640x360/206" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="700">
+                    <img src="http://static.photos/education/640x360/207" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-md transform transition hover:scale-105" data-aos="fade-up" data-aos-delay="800">
+                    <img src="http://static.photos/education/640x360/208" alt="Gallery" class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">LITHIUM 2K26</h3>
+                    <p class="text-gray-400">
+                        The official freshers' festival celebrating the arrival of the 2025 batch.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#schedule" class="text-gray-400 hover:text-white transition">Schedule</a></li>
+                        <li><a href="#speakers" class="text-gray-400 hover:text-white transition">Speakers</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>lithium@college.edu</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i data-feather="map-pin" class="mr-2"></i>
+                            <span>123 College Avenue, Campus City</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-purple-600 transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-blue-400 transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-pink-600 transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-red-600 transition">
+                            <i data-feather="youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2025 LITHIUM Freshers Festival. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Optimized background animation effect with requestAnimationFrame
+        let lastTime = 0;
+        function animateBackground(time) {
+            if (!lastTime) lastTime = time;
+            const deltaTime = time - lastTime;
+            
+            if (deltaTime > 16) { // ~60fps
+                document.addEventListener('mousemove', function(e) {
+                    const x = e.clientX / window.innerWidth;
+                    const y = e.clientY / window.innerHeight;
+                    requestAnimationFrame(() => {
+                        document.body.style.background = `linear-gradient(${y * 180}deg, 
+                            rgba(245, 247, 250, 0.9) 0%, 
+                            rgba(195, 207, 226, 0.9) 100%)`;
+                    });
+                });
+                lastTime = time;
+            }
+            requestAnimationFrame(animateBackground);
+        }
+        requestAnimationFrame(animateBackground);
+
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            feather.replace();
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Optimized countdown timer with requestAnimationFrame
+        let lastCountdownUpdate = 0;
+        function updateCountdown(time) {
+            if (!lastCountdownUpdate) lastCountdownUpdate = time;
+            const deltaTime = time - lastCountdownUpdate;
+            
+            if (deltaTime > 1000) { // Update once per second
+                const eventDate = new Date('October 15, 2025 09:00:00').getTime();
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                requestAnimationFrame(() => {
+                    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+                    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+                });
+                lastCountdownUpdate = time;
+            }
+            requestAnimationFrame(updateCountdown);
+        }
+        requestAnimationFrame(updateCountdown);
+
+        // Replace feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
