@@ -78,25 +78,53 @@
 
     <script>
         // Generate sequential pass number
-        function generatePassNumber() {
-            // Get or initialize the pass counter
-            let passCounter = localStorage.getItem('lithiumPassCounter');
-            if (!passCounter) {
-                passCounter = 1;
-            } else {
-                passCounter = parseInt(passCounter) + 1;
-            }
-            
-            // Store the updated counter
-            localStorage.setItem('lithiumPassCounter', passCounter);
-            
-            // Format as 6-digit number
-            const passNumber = passCounter.toString().padStart(6, '0');
-            document.getElementById('passNumber').textContent = `LITH-${passNumber}`;
-            
-            // Store this user's pass number
-            localStorage.setItem('lithiumPassNumber', passNumber);
-        }
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+import { getFirestore, doc, runTransaction } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBGP0mVdodHc7hHxani0_39j0-OWot2mQM",
+  authDomain: "lithiumpass.firebaseapp.com",
+  projectId: "lithiumpass",
+  storageBucket: "lithiumpass.firebasestorage.app",
+  messagingSenderId: "838826854913",
+  appId: "1:838826854913:web:a8871b7c4a67eb70650e00",
+  measurementId: "G-9ZMTX7SEED"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.onload = function () {
+  const savedPass = localStorage.getItem("lithiumUserPass");
+  if (savedPass) {
+    document.getElementById("passNumber").textContent = `LITH-${savedPass}`;
+  } else {
+    generatePassNumber();
+  }
+};
+
+async function generatePassNumber() {
+  const counterRef = doc(db, "counters", "lithiumPass");
+
+  try {
+    const newPass = await runTransaction(db, async (transaction) => {
+      const counterDoc = await transaction.get(counterRef);
+      if (!counterDoc.exists()) {
+        transaction.set(counterRef, { count: 1 });
+        return 1;
+      }
+      const newCount = counterDoc.data().count + 1;
+      transaction.update(counterRef, { count: newCount });
+      return newCount;
+    });
+
+    const passNumber = String(newPass).padStart(6, "0");
+    document.getElementById("passNumber").textContent = `LITH-${passNumber}`;
+    localStorage.setItem("lithiumUserPass", passNumber);
+  } catch (e) {
+    console.error("Error generating pass: ", e);
+  }
+}
 
         // Download pass as image
         function downloadPass() {
@@ -139,4 +167,5 @@
 </body>
 
 </html>
+
 
